@@ -1,0 +1,57 @@
+#############
+### VIDEO ###
+#############
+
+## linux, OSD native reso
+# vo=gl
+## OSX, OSD native reso (to be specified in dsize :)
+#vf=dsize=1280:780,scale=0:0
+fs=yes
+
+#######
+# OSD #
+#######
+
+font='Adobe Garamond Pro'
+subfont-osd-scale=1.5
+
+#################
+### SUBTITLES ###
+#################
+
+#subcp=latin1
+subcp=utf-8
+ass=yes
+ass-font-scale=2.2
+subfont-text-scale=2.2
+## gcarrier's favorite
+subfont='Adobe Garamond Pro'
+## Requires MS fonts
+# subfont='Georgia'
+embeddedfonts=yes
+
+#############
+### AUDIO ###
+#############
+
+af-add=scaletempo
+## X.1=>headphones
+#af-add=hrtf
+## 2.0=>headphones
+#af-add=bs2b
+
+#ao=alsa
+softvol=yes
+softvol-max=1000.0
+volstep=1
+
+################
+### F.CK AVI ###
+################
+
+## std
+idx=yes
+## real crazy avis
+#forceidx=yes
+#ni=yes
+#nobps=yes

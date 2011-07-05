@@ -1,0 +1,44 @@
+[user]
+	name = Pierre Carrier
+	email = pierre@gcarrier.fr
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = pierre@spotify.com
+[status]
+	showUntrackedFiles = normal
+[core]
+	ignorecase = true
+	excludesfile = /Users/pcarrier/.gitignore_global
+[push]
+	default = tracking
+[rerere]
+	enabled = 1
+	autoupdate = 1
+[color]
+	diff = auto
+	interactive = auto
+	branch = auto
+	status = auto
+[alias]
+	b = bundle
+	k = log --oneline --graph --decorate
+	dsc = describe
+	nr = name-rev --name-only --refs=refs/heads/*
+	nri = name-rev --refs=refs/heads/* --stdin
+	ss = status -sb
+	dw = diff --color-words
+	wd = diff --word-diff
+	co = checkout
+	cl = clone
+	cm = commit
+	st = status
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	where = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
+[difftool "sourcetree"]
+	cmd = /Applications/Kaleidoscope.app/Contents/MacOS/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

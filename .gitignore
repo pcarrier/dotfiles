@@ -1,0 +1,44 @@
+Applications
+Desktop
+Documents
+Downloads
+Library
+Movies
+Music
+Pictures
+Public
+Sites
+.Trash
+
+bin
+opt
+usr
+repos
+
+# Packaging stuff
+.cpan
+.gem
+.rvm
+.npm
+
+# confidentiality :)
+.ssh/config
+.ssh/config.d/hosts
+.ssh/id_rsa
+.ssh/known_hosts
+.subversion/auth
+.Xauthority
+.pinlock
+
+# crap
+.CFUserTextEncoding
+.viminfo
+.zcompdump
+.fontconfig
+
+# managed via .vim/update_bundles
+.vim/bundle
+
+# histories (bash, zsh, gdb, irb, less)
+.*history
+.lesshst
