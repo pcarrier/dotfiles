@@ -1,0 +1,17 @@
+deb http://archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+#deb-src http://archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
+#deb-src http://archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
+#deb-src http://archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
+deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu trusty main
+#deb-src http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu trusty main
+deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+#deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main
+#deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main
+deb http://ppa.launchpad.net/nowrep/qupzilla/ubuntu trusty main 
+#deb-src http://ppa.launchpad.net/nowrep/qupzilla/ubuntu trusty main 
+deb http://ppa.launchpad.net/noobslab/indicators/ubuntu trusty main
+#deb-src http://ppa.launchpad.net/noobslab/indicators/ubuntu trusty main
+deb http://debian.sur5r.net/i3/ trusty universe
