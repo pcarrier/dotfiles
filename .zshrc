@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-export ZSH=repos/oh-my-zsh
+export ZSH=$HOME/repos/oh-my-zsh
 export ZSH_THEME=arrow
 export EDITOR="mvim -f"
 

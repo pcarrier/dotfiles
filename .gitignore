@@ -32,9 +32,10 @@ repos
 
 # crap
 .CFUserTextEncoding
+.fontconfig
 .viminfo
 .zcompdump
-.fontconfig
+.zsh-update
 
 # managed via .vim/update_bundles
 .vim/bundle
