@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/repos/oh-my-zsh
-export ZSH_THEME=pmcgee
+export ZSH_THEME=gentoo
 export EDITOR="vim"
 
 # (plugins can be found in ~/.oh-my-zsh/plugins/*)

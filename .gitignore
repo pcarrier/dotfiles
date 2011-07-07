@@ -1,19 +1,19 @@
-Applications
-Desktop
-Documents
-Downloads
-Library
-Movies
-Music
-Pictures
-Public
-Sites
-VirtualBox VMs
-.Trash
+Applications/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+Sites/
+VirtualBox VMs/
+.Trash/
 
-bin
-opt
-repos
+bin/
+opt/
+repos/
 !repos/oh-my-zsh
 !repos/solarized
 usr
@@ -27,8 +27,10 @@ tmp
 .npm
 
 # confidentiality :)
-.keeppassx
+.keepassx/
+.irssi/
 .pgpass
+.pinlock
 .serverdb.yml
 .ssh/config
 .ssh/config.d/hosts
@@ -36,11 +38,11 @@ tmp
 .ssh/known_hosts
 .subversion/auth
 .Xauthority
-.pinlock
 
 # crap
 .CFUserTextEncoding
 .cups
+.gitk
 .fontconfig
 .vim/backup
 .viminfo
@@ -48,7 +50,8 @@ tmp
 .zsh-update
 
 # managed via .vim/update_bundles
-.vim/bundle
+.vim/bundle/
+!.vim/bundle/.keep
 
 # histories (bash, zsh, gdb, irb, less)
 .*history
