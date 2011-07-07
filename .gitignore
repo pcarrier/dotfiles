@@ -8,20 +8,28 @@ Music
 Pictures
 Public
 Sites
+VirtualBox VMs
 .Trash
 
 bin
 opt
-usr
 repos
+!repos/oh-my-zsh
+!repos/solarized
+usr
+tmp
 
 # Packaging stuff
 .cpan
 .gem
+.pip
 .rvm
 .npm
 
 # confidentiality :)
+.keeppassx
+.pgpass
+.serverdb.yml
 .ssh/config
 .ssh/config.d/hosts
 .ssh/id_rsa
@@ -32,7 +40,9 @@ repos
 
 # crap
 .CFUserTextEncoding
+.cups
 .fontconfig
+.vim/backup
 .viminfo
 .zcompdump
 .zsh-update
