@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/repos/oh-my-zsh
 export ZSH_THEME=pmcgee
-export EDITOR="mvim -f"
+export EDITOR="vim"
 
 # (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(osx gem brew npm ruby rvm)
