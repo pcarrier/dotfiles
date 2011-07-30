@@ -1,10 +1,10 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/repos/oh-my-zsh
-export ZSH_THEME=arrow
+export ZSH_THEME=gentoo
 export EDITOR="mate -w"
 
 # (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(osx git github gem brew npm ruby rvm)
+plugins=(osx gem brew npm ruby rvm)
 
 source $ZSH/oh-my-zsh.sh
 

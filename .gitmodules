@@ -1,8 +1,8 @@
-[submodule "oh-my-zsh"]
-path = repos/oh-my-zsh
-url = git://github.com/blueyed/oh-my-zsh.git
-ignore = untracked
-[submodule "solarized"]
-path = repos/solarized
-url = git://github.com/altercation/solarized.git
-ignore = untracked
+[submodule "repos/oh-my-zsh"]
+	path = repos/oh-my-zsh
+	url = git://github.com/blueyed/oh-my-zsh.git
+	ignore = untracked
+[submodule "repos/solarized"]
+	path = repos/solarized
+	url = git://github.com/altercation/solarized.git
+	ignore = untracked
