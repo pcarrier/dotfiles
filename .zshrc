@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/repos/oh-my-zsh
 export ZSH_THEME=arrow
-export EDITOR="mvim -f"
+export EDITOR="mate -w"
 
 # (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(osx git github gem brew npm ruby rvm)
@@ -24,5 +24,3 @@ otmux() { tmux attach-session -d -t "$1" || tmux new-session -s "$1"; }
 sprunge() { 'curl -F '\''sprunge=<-'\'' http://sprunge.us'; }
 
 export ARCHFLAGS="-arch x86_64" #... -arch i386"
-
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
