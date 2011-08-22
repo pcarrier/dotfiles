@@ -20,11 +20,11 @@ usr
 tmp
 
 # Packaging stuff
-.cpan
-.gem
-.pip
-.rvm
-.npm
+.cpan/
+.gem/
+.pip/
+.rvm/
+.npm/
 
 # confidentiality :)
 .keepassx/
@@ -45,6 +45,7 @@ tmp
 .cups
 .gitk
 .fontconfig
+.ipython/
 .vim/backup
 .viminfo
 .zcompdump
