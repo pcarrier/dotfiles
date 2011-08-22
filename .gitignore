@@ -38,6 +38,7 @@ tmp
 .ssh/known_hosts
 .subversion/auth
 .Xauthority
+.serverauth.*
 
 # crap
 .CFUserTextEncoding
