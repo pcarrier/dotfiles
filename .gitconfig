@@ -1,6 +1,6 @@
 [user]
 	name = Pierre Carrier
-	email = pierre@gcarrier.fr
+	email = pierre@spotify.com
 [sendemail]
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
@@ -30,6 +30,7 @@
 	nri = name-rev --refs=refs/heads/* --stdin
 	ss = status -sb
 	pulla = pull --all
+	pusha = push --all
 	dw = diff --color-words
 	wd = diff --word-diff
 	co = checkout
