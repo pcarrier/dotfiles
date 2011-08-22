@@ -20,11 +20,11 @@ usr
 tmp
 
 # Packaging stuff
-.cpan
-.gem
-.pip
-.rvm
-.npm
+.cpan/
+.gem/
+.pip/
+.rvm/
+.npm/
 
 # confidentiality :)
 .keepassx/
@@ -38,12 +38,14 @@ tmp
 .ssh/known_hosts
 .subversion/auth
 .Xauthority
+.serverauth.*
 
 # crap
 .CFUserTextEncoding
 .cups
 .gitk
 .fontconfig
+.ipython/
 .vim/backup
 .viminfo
 .zcompdump
