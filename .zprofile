@@ -11,7 +11,7 @@ CVSROOT=anoncvs@anoncvs.fr.openbsd.org:/cvs
 HISTFILE=$HOME/.history
 HISTSIZE=1048576
 
-PS1="%? %n@%B%m%b:%1~ %# "
-RPS1="%~"
+PS1="%1~ %? %# "
+RPS1="%n@%B%m%b:%~"
 
 export PATH PKG_PATH PAGER CVSROOT EDITOR HISTFILE HISTSIZE ARCHFLAGS CLICOLOR PS1
