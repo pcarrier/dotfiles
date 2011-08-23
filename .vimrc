@@ -2,9 +2,6 @@ set nocompatible
 set hlsearch incsearch
 set fileformat=unix encoding=utf-8
 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
 filetype on
 syntax on
 
@@ -13,7 +10,6 @@ set autoindent copyindent
 set ttyfast visualbell
 set scrolloff=3
 set laststatus=2
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set smartindent
 set smartcase infercase
 
