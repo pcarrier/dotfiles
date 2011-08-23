@@ -13,7 +13,7 @@ HISTSIZE=1048576
 
 autoload -U colors
 colors
-PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{$fg[yellow]%}%1~ %{$fg[red]%}%?%{$reset_color%B%}%# %{%b%}"
+PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[yellow]%}%1~ %{$reset_color%}%# "
 RPS1="%M:%d"
 
 export PATH PKG_PATH PAGER CVSROOT EDITOR HISTFILE HISTSIZE ARCHFLAGS PS1 RPS1

@@ -10,11 +10,10 @@ zmodload -a autocomplete
 zmodload -a complist
 
 setopt autocd autopushd pushdminus pushdsilent pushdtohome
-setopt noclobber
-setopt HIST_REDUCE_BLANKS HIST_IGNORE_SPACE
-setopt SH_WORD_SPLIT
-setopt nohup
+setopt HIST_REDUCE_BLANKS HIST_IGNORE_SPACE SHARE_HISTORY
+setopt print_exit_value no_hup no_clobber
 setopt extendedglob
+setopt correct
 
 mkcd() { mkdir -p "$1"; cd "$1"; }
 mtar() { tarparms="$1"; shift; for fn in $@; do tar "$tarparms" "$fn"; done; }
