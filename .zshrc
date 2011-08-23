@@ -1,5 +1,9 @@
-autoload -U compinit
+autoload -U compinit colors
 compinit
+colors
+
+PROMPT="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{$fg[yellow]%}%1~ %{$fg[red]%}%?%{$reset_color%B%}%# %{%b%}"
+RPROMPT="%M:%d"
 
 bindkey -e vi
 
