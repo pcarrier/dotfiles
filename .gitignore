@@ -46,7 +46,7 @@ tmp
 .gitk
 .fontconfig
 .ipython/
-.vim/backup
+.vim/
 .viminfo
 .zcompdump
 .zsh-update
