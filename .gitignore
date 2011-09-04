@@ -14,8 +14,6 @@ VirtualBox VMs/
 bin/
 opt/
 repos/
-!repos/oh-my-zsh
-!repos/solarized
 usr
 tmp
 
