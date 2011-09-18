@@ -10,7 +10,7 @@ zmodload -a autocomplete
 zmodload -a complist
 
 setopt autocd autopushd pushdminus pushdsilent pushdtohome
-setopt APPEND_HISTORY INC_APPEND_HISTORY SHARE_HISTORY
+setopt HIST_REDUCE_BLANKS HIST_IGNORE_SPACE SHARE_HISTORY inc_append_history
 setopt print_exit_value no_hup no_clobber
 setopt extendedglob
 setopt correct
@@ -22,9 +22,13 @@ sprunge() { 'curl -F '\''sprunge=<-'\'' http://sprunge.us'; }
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
+<<<<<<< HEAD
 case $TERM in
     rxvt|*term)
         precmd() { print -Pn "\e]0;%m:%~\a" }
         preexec () { print -Pn "\e]0;$1\a" }
     ;;
 esac
+=======
+alias ls="ls -liF --color"
+>>>>>>> dc5eab45237502737a5879685bc5d49835fe3d76

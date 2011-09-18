@@ -14,8 +14,6 @@ VirtualBox VMs/
 bin/
 opt/
 repos/
-!repos/oh-my-zsh
-!repos/solarized
 usr
 tmp
 
@@ -37,6 +35,7 @@ tmp
 .ssh/id_rsa
 .ssh/known_hosts
 .subversion/auth
+.cvspass
 .Xauthority
 .serverauth.*
 

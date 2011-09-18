@@ -5,7 +5,7 @@ PAGER=less
 
 ARCHFLAGS="-arch x86_64" #... -arch i386"
 
-PKG_PATH=http://ftp.spline.de/pub/OpenBSD/4.9/packages/`machine`/
+PKG_PATH=http://ftp.spline.de/pub/OpenBSD/4.9/packages/amd64/
 CVSROOT=anoncvs@anoncvs.fr.openbsd.org:/cvs
 
 HISTFILE=$HOME/.history
