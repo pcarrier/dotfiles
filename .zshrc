@@ -10,7 +10,7 @@ zmodload -a autocomplete
 zmodload -a complist
 
 setopt autocd autopushd pushdminus pushdsilent pushdtohome
-setopt HIST_REDUCE_BLANKS HIST_IGNORE_SPACE SHARE_HISTORY
+setopt APPEND_HISTORY INC_APPEND_HISTORY SHARE_HISTORY
 setopt print_exit_value no_hup no_clobber
 setopt extendedglob
 setopt correct
@@ -21,3 +21,10 @@ otmux() { tmux attach-session -d -t "$1" || tmux new-session -s "$1"; }
 sprunge() { 'curl -F '\''sprunge=<-'\'' http://sprunge.us'; }
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+case $TERM in
+    rxvt|*term)
+        precmd() { print -Pn "\e]0;%m:%~\a" }
+        preexec () { print -Pn "\e]0;$1\a" }
+    ;;
+esac
