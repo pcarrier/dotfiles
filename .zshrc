@@ -29,4 +29,4 @@ case $TERM in
     ;;
 esac
 
-alias ls="ls -liF --color"
+alias ls="ls -liF"
