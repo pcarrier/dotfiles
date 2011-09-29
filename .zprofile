@@ -1,6 +1,6 @@
-PATH=$HOME/bin:$HOME/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/X11/bin:/usr/games:.
-
 [ -r /etc/profile ] && source /etc/profile
+
+PATH=$HOME/bin:$HOME/usr/bin:$PATH:/opt/groovyserv/bin/
 
 EDITOR=vim
 PAGER=less
