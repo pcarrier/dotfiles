@@ -29,4 +29,9 @@ case $TERM in
     ;;
 esac
 
+autoload -U colors
+colors
+PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[yellow]%}%1~ %{$reset_color%}%# "
+RPS1="%M:%d"
+
 alias ls="ls -liF"
