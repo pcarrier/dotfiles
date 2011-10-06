@@ -34,4 +34,4 @@ colors
 PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[yellow]%}%1~ %{$reset_color%}%# "
 RPS1="%M:%d"
 
-alias ls="ls -liFG"
+alias ls="ls -liF --color"
