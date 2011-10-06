@@ -34,4 +34,7 @@ colors
 PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[yellow]%}%1~ %{$reset_color%}%# "
 RPS1="%M:%d"
 
-alias ls="ls -liF --color"
+if [ -n $ITERM_SESSION_ID ] # ugly way to spot OSX
+	then alias ls="ls -liFG"
+	else alias ls="ls -liF --color"
+fi
