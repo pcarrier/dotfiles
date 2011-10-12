@@ -1,2 +1,11 @@
+URxvt*termName: xterm-color
 URxvt*reverseVideo: true
 URxvt*cursorColor: red
+URxvt*font: xft:inconsolata:size=12
+URxvt*perl-ext-common: default,tabbed
+XCursor*theme: bluecurve
+Xft.antialias: true
+Xft.dpi: 96
+Xft.hinting: true
+Xft.hintstyle: full
+Xft.rgba: rgb

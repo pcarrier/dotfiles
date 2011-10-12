@@ -35,3 +35,13 @@ PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[yellow]%}%1~ %
 RPS1="%M:%d"
 
 alias ls="ls -liF --color"
+
+alias sshow="ssh -t $USERNAME@paloma serverdb-show-host"
+alias vin="sublime"
+alias vinn="sublime -n"
+
+hash -d logs="/var/logs"
+hash -d servers="/media/servers"
+hash -d ssd="/media/ssd"
+hash -d hdd="/media/hdd"
+hash -d spotifiles="/media/spotifiles"

@@ -1,0 +1,12 @@
+gtk-theme-name="Xfce-b5"
+gtk-icon-theme-name="Tango"
+gtk-font-name="inconsolata 10"
+gtk-cursor-theme-name="Bluecurve"
+gtk-cursor-theme-size=0
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
+gtk-button-images=1
+gtk-menu-images=1
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0
+include "/home/pierre/.gtkrc-2.0.mine"

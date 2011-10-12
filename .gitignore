@@ -41,12 +41,18 @@ tmp
 
 # crap
 .CFUserTextEncoding
+.ccache/
 .cups
+.dbus
 .gitk
 .fontconfig
+.icons/
 .ipython/
+.local/
+.macromedia/
 .vim/
 .viminfo
+.xsession-errors
 .zcompdump
 .zsh-update
 
