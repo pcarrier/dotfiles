@@ -31,10 +31,10 @@ esac
 
 autoload -U colors
 colors
-PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[yellow]%}%1~ %{$reset_color%}%# "
+PS1="%{%B$fg[red]%}%n%{$reset_color%B%}@%{$fg[green]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
 RPS1="%M:%d"
 
-alias sshow="ssh -t $USERNAME@paloma serverdb-show-host"
+alias sshow="serverdb-show-host"
 alias vin="sublime"
 alias vinn="sublime -n"
 
@@ -44,7 +44,9 @@ hash -d ssd="/media/ssd"
 hash -d hdd="/media/hdd"
 hash -d spotifiles="/media/spotifiles"
 
-if [ -n $ITERM_SESSION_ID ] # ugly way to spot OSX
-	then alias ls="ls -liFG"
-	else alias ls="ls -liF --color"
+if [ -n "${ITERM_SESSION_ID}" ] # ugly way to spot OSX
+then
+	alias ls="ls -liFG"
+else
+	alias ls="ls -liF --color"
 fi
