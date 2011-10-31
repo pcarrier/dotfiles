@@ -3,9 +3,13 @@ URxvt*reverseVideo: true
 URxvt*cursorColor: red
 URxvt*font: xft:inconsolata:size=12
 URxvt*perl-ext-common: default,tabbed
+URxvt*saveLines: 1073741824
+URxvt*scrollBar: false
 XCursor*theme: bluecurve
 Xft.antialias: true
 Xft.dpi: 96
 Xft.hinting: true
 Xft.hintstyle: full
-Xft.rgba: rgb
+Xft.rgba: none
+Xft.lcdfilter: lcddefault
+
