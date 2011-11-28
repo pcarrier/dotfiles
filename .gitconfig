@@ -10,7 +10,7 @@
 	showUntrackedFiles = normal
 [core]
 	ignorecase = true
-	excludesfile = /Users/pcarrier/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [push]
 	default = tracking
 [rerere]
@@ -25,6 +25,9 @@
 	k = log --oneline --graph --decorate
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	b = bundle
+	d = diff
+	ds = diff --staged
+	cp = cherry-pick
 	dsc = describe
 	nr = name-rev --name-only --refs=refs/heads/*
 	nri = name-rev --refs=refs/heads/* --stdin
@@ -38,6 +41,8 @@
 	cm = commit
 	st = status
 	where = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
+	sr = svn rebase
+	sd = svn dcommit
 [difftool "sourcetree"]
 	cmd = /Applications/Kaleidoscope.app/Contents/MacOS/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 

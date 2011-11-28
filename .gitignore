@@ -40,7 +40,10 @@ tmp
 .serverauth.*
 
 # crap
+.IntelliJIdea10/
+.IntelliJIdea11/
 .CFUserTextEncoding
+.cache/
 .ccache/
 .cups
 .dbus
