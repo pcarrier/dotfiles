@@ -37,6 +37,8 @@ RPS1="%M:%d"
 alias sshow="serverdb-show-host"
 alias vin="sublime"
 alias vinn="sublime -n"
+alias rmterm="mterm -o'-A -lroot'"
+alias ops="opshost"
 
 hash -d logs="/var/logs"
 hash -d servers="/media/servers"
