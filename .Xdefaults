@@ -5,9 +5,8 @@ URxvt*font: xft:inconsolata:size=12
 URxvt*perl-ext-common: default,tabbed
 URxvt*saveLines: 1073741824
 URxvt*scrollBar: false
-XCursor*theme: bluecurve
 Xft.antialias: true
-Xft.dpi: 96
+Xft.dpi: 80
 Xft.hinting: true
 Xft.hintstyle: full
 Xft.rgba: none
