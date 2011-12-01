@@ -39,6 +39,7 @@ alias vin="sublime"
 alias vinn="sublime -n"
 alias rmterm="mterm -o'-A -lroot'"
 alias ops="opshost"
+alias dotfiles="export GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME"
 
 hash -d logs="/var/logs"
 hash -d servers="/media/servers"
