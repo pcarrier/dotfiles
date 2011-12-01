@@ -1,14 +1,14 @@
 URxvt*termName: xterm-color
 URxvt*reverseVideo: true
 URxvt*cursorColor: red
-URxvt*font: xft:inconsolata:size=12
-URxvt*perl-ext-common: default,tabbed
+URxvt*font: xft:Droid Sans Mono:size=11
+; URxvt*perl-ext-common: default,tabbed
 URxvt*saveLines: 1073741824
 URxvt*scrollBar: false
-Xft.antialias: true
-Xft.dpi: 80
-Xft.hinting: true
-Xft.hintstyle: full
-Xft.rgba: none
-Xft.lcdfilter: lcddefault
-
+Xft.dpi: 75
+Xft.autohint: 0
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.hintstyle:  hintfull
+Xft.rgba: rgb
+Xft.lcdfilter:  lcdlight
