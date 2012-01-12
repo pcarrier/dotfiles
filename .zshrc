@@ -39,7 +39,7 @@ alias vin="sublime"
 alias vinn="sublime -n"
 alias rmterm="mterm -o'-A -lroot'"
 alias ops="opshost"
-alias dotfiles="export GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME"
+alias dotgit="GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME git"
 
 hash -d logs="/var/logs"
 hash -d servers="/media/servers"
@@ -53,3 +53,7 @@ then
 else
 	alias ls="ls -liF --color"
 fi
+
+source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+bindkey '^[[1;5C' emacs-forward-word
+bindkey '^[[1;5D' emacs-backward-word
