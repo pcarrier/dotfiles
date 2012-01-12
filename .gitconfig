@@ -58,3 +58,5 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+[branch]
+	autosetuprebase = always
