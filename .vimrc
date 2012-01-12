@@ -33,7 +33,7 @@ set listchars=eol:•,tab:↦\ ,trail:»,extends:↷,precedes:↶
 " colorscheme solarized
 
 if filewritable(expand("~/.vim/backup")) != 2
-   call system("mkdir $HOME/.vim/backup -p")
+   call system("mkdir -p $HOME/.vim/backup -p")
 endif
 set backup backupdir=$HOME/.vim/backup
 set undolevels=10000
