@@ -11,6 +11,7 @@ sourcetreebulkmerge.premerge=False
 sourcetreebulkmerge.binary=True
 [ui]
 ignore=/Users/pierre/.hgignore_global
+username=Pierre Carrier <pierre@spotify.com>
 [extdiff]
 cmd.sourcetreediff=/Applications/Kaleidoscope.app/Contents/MacOS/ksdiff
 opts.sourcetreediff=-w
