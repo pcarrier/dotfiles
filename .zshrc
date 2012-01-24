@@ -47,15 +47,12 @@ hash -d ssd="/media/ssd"
 hash -d hdd="/media/hdd"
 hash -d spotifiles="/media/spotifiles"
 
-KERN=$(uname -s)
-
-case $KERN in
-Darwin|FreeBSD)
+if [ -n "${ITERM_SESSION_ID}" ] # ugly way to spot OSX
+then
 	alias ls="ls -liFG"
-	;;
-Linux)
+else
 	alias ls="ls -liF --color"
-esac
+fi
 
 source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey '^[[1;5C' emacs-forward-word
