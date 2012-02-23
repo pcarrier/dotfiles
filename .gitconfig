@@ -9,7 +9,6 @@
 [status]
 	showUntrackedFiles = normal
 [core]
-	ignorecase = true
 	excludesfile = ~/.gitignore_global
 [push]
 	default = tracking
