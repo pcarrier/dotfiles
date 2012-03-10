@@ -12,7 +12,7 @@ zmodload -a complist
 setopt autocd autopushd pushdminus pushdsilent pushdtohome
 setopt HIST_REDUCE_BLANKS HIST_IGNORE_SPACE SHARE_HISTORY inc_append_history
 setopt print_exit_value no_hup no_clobber
-setopt extendedglob
+setopt extendedglob glob_dots
 setopt correct
 
 mkcd() { mkdir -p "$1"; cd "$1"; }
