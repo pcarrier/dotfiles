@@ -57,3 +57,5 @@ fi
 source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
+
+eval "$(rbenv init -)"

@@ -1,6 +1,6 @@
 [ -r /etc/profile ] && source /etc/profile
 
-PATH=$HOME/bin:$HOME/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin
+PATH=$HOME/.rbenv/bin:$HOME/bin:$HOME/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin
 
 EDITOR=vim
 PAGER=less
