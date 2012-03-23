@@ -32,7 +32,7 @@ esac
 autoload -U colors
 colors
 PS1="%{%B$fg[red]%}%n%{$reset_color%B%}@%{$fg[green]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
-RPS1="%M:%d"
+#RPS1="%M:%d"
 
 alias sshow="serverdb-show-host"
 alias vin="sublime"
@@ -57,5 +57,3 @@ fi
 source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
-
-eval "$(rbenv init -)"
