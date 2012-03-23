@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 %w[
-  i2cssh
   moob
   pry
   awesome_print
