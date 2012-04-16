@@ -34,7 +34,7 @@ colors
 PS1="%{%B$fg[red]%}%n%{$reset_color%B%}@%{$fg[green]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
 #RPS1="%M:%d"
 
-alias sshow="serverdb-show-host"
+alias sshow="opshost show"
 alias vin="sublime"
 alias vinn="sublime -n"
 alias rmterm="mterm -o'-A -lroot'"
@@ -42,7 +42,6 @@ alias ops="opshost"
 alias dotgit="GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME git"
 
 hash -d logs="/var/logs"
-hash -d servers="/media/servers"
 hash -d ssd="/media/ssd"
 hash -d hdd="/media/hdd"
 hash -d spotifiles="/media/spotifiles"
