@@ -13,8 +13,6 @@ set laststatus=2
 set smartindent
 set smartcase infercase
 
-set background=dark
-
 " set foldcolumn=2 foldmethod=syntax " marker
 
 "" Broken with :h
@@ -30,7 +28,7 @@ set background=dark
 set title list number ruler showmode showcmd showmatch
 set listchars=eol:•,tab:↦\ ,trail:»,extends:↷,precedes:↶
 
-" colorscheme solarized
+"colorscheme solarized
 
 if filewritable(expand("~/.vim/backup")) != 2
    call system("mkdir -p $HOME/.vim/backup -p")
