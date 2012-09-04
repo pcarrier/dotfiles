@@ -10,6 +10,7 @@
 	showUntrackedFiles = normal
 [core]
 	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes_global
 [push]
 	default = tracking
 [rerere]
@@ -58,3 +59,6 @@
 	tool = Kaleidoscope
 [branch]
 	autosetuprebase = always
+[merge "dpkg-mergechangelogs"]
+	name = debian/changelog merge driver
+	driver = dpkg-mergechangelogs -m %O %A %B %A
