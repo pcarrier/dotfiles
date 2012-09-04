@@ -3,7 +3,7 @@
 #############
 
 ## linux, OSD native reso
-# vo=gl
+vo=gl
 ## OSX, OSD native reso (to be specified in dsize :)
 #vf=dsize=1280:780,scale=0:0
 fs=yes
@@ -12,8 +12,8 @@ fs=yes
 # OSD #
 #######
 
-font='Adobe Garamond Pro'
-subfont-osd-scale=1.5
+#font='Adobe Garamond Pro'
+#subfont-osd-scale=1.5
 
 #################
 ### SUBTITLES ###
@@ -25,9 +25,9 @@ ass=yes
 ass-font-scale=2.2
 subfont-text-scale=2.2
 ## gcarrier's favorite
-subfont='Adobe Garamond Pro'
+#subfont='Adobe Garamond Pro'
 ## Requires MS fonts
-# subfont='Georgia'
+subfont='Georgia'
 embeddedfonts=yes
 
 #############
@@ -40,7 +40,7 @@ af-add=scaletempo
 ## 2.0=>headphones
 #af-add=bs2b
 
-#ao=alsa
+ao=pulse
 softvol=yes
 softvol-max=1000.0
 volstep=1
