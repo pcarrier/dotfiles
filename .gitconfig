@@ -22,9 +22,11 @@
 	branch = auto
 	status = auto
 [alias]
-	k = log --oneline --graph --decorate
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	b = bundle
+	dc = describe --contains
+	fp = format-patch -k -M -N
+	k = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	b = branch -v
+	bu = bundle
 	d = diff
 	ds = diff --staged
 	cp = cherry-pick
