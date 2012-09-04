@@ -1,26 +1,31 @@
-autoload -U compinit
-compinit
-
 bindkey -e vi
-
-zstyle ':completion:*' menu select
 
 zmodload -a colors
 zmodload -a autocomplete
-zmodload -a complist
+autoload -U age
+
+zmodload zsh/complist
+
+eval $(dircolors)
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' verbose true
+zstyle ':completion:*' extra-verbose true
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+
+autoload -Uz compinit
+compinit
 
 setopt autocd autopushd pushdminus pushdsilent pushdtohome
 setopt HIST_REDUCE_BLANKS HIST_IGNORE_SPACE SHARE_HISTORY inc_append_history
-setopt print_exit_value no_hup no_clobber
+setopt no_hup no_clobber print_exit_value
 setopt extendedglob glob_dots
 setopt correct
-
-mkcd() { mkdir -p "$1"; cd "$1"; }
-mtar() { tarparms="$1"; shift; for fn in $@; do tar "$tarparms" "$fn"; done; }
-otmux() { tmux attach-session -d -t "$1" || tmux new-session -s "$1"; }
-sprunge() { 'curl -F '\''sprunge=<-'\'' http://sprunge.us'; }
-
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+setopt completealiases
 
 case $TERM in
     rxvt|*term)
@@ -31,7 +36,7 @@ esac
 
 autoload -U colors
 colors
-PS1="%{%B$fg[red]%}%n%{$reset_color%B%}@%{$fg[green]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
+PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
 #RPS1="%M:%d"
 
 alias sshow="opshost show"
@@ -40,6 +45,10 @@ alias vinn="sublime -n"
 alias rmterm="mterm -o'-A -lroot'"
 alias ops="opshost"
 alias dotgit="GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME git"
+
+alias -g G='|egrep'
+alias -g S='|sort'
+alias -g L='|less'
 
 hash -d logs="/var/logs"
 hash -d ssd="/media/ssd"
@@ -53,6 +62,17 @@ else
 	alias ls="ls -liF --color"
 fi
 
-source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
+
+mkcd() { mkdir -p "$1"; cd "$1"; }
+mtar() { tarparms="$1"; shift; for fn in $@; do tar "$tarparms" "$fn"; done; }
+otmux() { tmux attach-session -d -t "$1" || tmux new-session -s "$1"; }
+sprunge() { curl -F 'sprunge=<-' http://sprunge.us; }
+
+autoload -Uz compinit
+compinit
+
+alias ack=ack-grep
+
+alias lf="awk -F '{print $NF;}'"
