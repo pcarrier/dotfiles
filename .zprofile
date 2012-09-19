@@ -1,4 +1,4 @@
-PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+PATH="$HOME/.gem/ruby/1.9.1/bin/:$HOME/bin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 for f in /etc/profile.d/*.sh; do
 	. $f
