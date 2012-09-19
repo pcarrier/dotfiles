@@ -73,6 +73,4 @@ sprunge() { curl -F 'sprunge=<-' http://sprunge.us; }
 autoload -Uz compinit
 compinit
 
-alias ack=ack-grep
-
 alias lf="awk -F '{print $NF;}'"
