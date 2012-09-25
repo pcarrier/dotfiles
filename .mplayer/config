@@ -3,7 +3,7 @@
 #############
 
 ## linux, OSD native reso
-vo=gl
+#vo=xv
 ## OSX, OSD native reso (to be specified in dsize :)
 #vf=dsize=1280:780,scale=0:0
 fs=yes
