@@ -48,7 +48,7 @@ alias -g G='|egrep'
 alias -g S='|sort'
 alias -g L='|less'
 
-hash -d logs="/var/logs"
+hash -d logs="/var/log"
 hash -d ssd="/media/ssd"
 hash -d hdd="/media/hdd"
 hash -d spotifiles="/media/spotifiles"
