@@ -2,7 +2,7 @@ bindkey -e vi
 
 zmodload -a colors
 zmodload -a autocomplete
-autoload -U age
+autoload -U age && age
 
 zmodload zsh/complist
 
@@ -17,8 +17,7 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 setopt autocd autopushd pushdminus pushdsilent pushdtohome
 setopt HIST_REDUCE_BLANKS HIST_IGNORE_SPACE SHARE_HISTORY inc_append_history
@@ -34,8 +33,7 @@ case $TERM in
     ;;
 esac
 
-autoload -U colors
-colors
+autoload -U colors && colors
 PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
 #RPS1="%M:%d"
 
@@ -70,7 +68,6 @@ mtar() { tarparms="$1"; shift; for fn in $@; do tar "$tarparms" "$fn"; done; }
 otmux() { tmux attach-session -d -t "$1" || tmux new-session -s "$1"; }
 sprunge() { curl -F 'sprunge=<-' http://sprunge.us; }
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 alias lf="awk -F '{print $NF;}'"
