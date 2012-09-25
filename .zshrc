@@ -41,7 +41,7 @@ alias rmterm="mterm -o'-A -lroot'"
 alias ops="opshost"
 alias dotgit="GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME git"
 
-hash -d logs="/var/logs"
+hash -d logs="/var/log"
 hash -d servers="/media/servers"
 hash -d ssd="/media/ssd"
 hash -d hdd="/media/hdd"
