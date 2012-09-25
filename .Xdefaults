@@ -1,14 +1,14 @@
 URxvt*termName: xterm-color
 URxvt*reverseVideo: true
 URxvt*cursorColor: red
-URxvt*font: xft:Droid Sans Mono:size=11
-; URxvt*perl-ext-common: default,tabbed
 URxvt*saveLines: 1073741824
 URxvt*scrollBar: false
-Xft.dpi: 75
-Xft.autohint: 0
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.hintstyle:  hintfull
-Xft.rgba: rgb
-Xft.lcdfilter:  lcdlight
+URxvt*loginShell: true
+; URxvt*perl-ext-common: default,tabbed
+; Xft.dpi: 75
+; Xft.autohint: 0
+; Xft.hinting: 1
+; Xft.antialias: 1
+; Xft.hintstyle:  hintfull
+; Xft.rgba: rgb
+; Xft.lcdfilter:  lcdlight

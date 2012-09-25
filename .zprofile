@@ -1,22 +1,18 @@
-[ -r /etc/profile ] && source /etc/profile
+PATH="$HOME/.gem/ruby/1.9.1/bin/:$HOME/bin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
-PATH=$HOME/bin:$HOME/usr/bin:$PATH:/opt/groovyserv/bin/
+for f in /etc/profile.d/*.sh; do
+	. $f
+done
 
 EDITOR=vim
-PAGER=less
-
-ARCHFLAGS="-arch x86_64" #... -arch i386"
-
-PACKAGEROOT=ftp://ftp.se.FreeBSD.org
-PKG_PATH=http://ftp.spline.de/pub/OpenBSD/4.9/packages/amd64/
-CVSROOT=anoncvs@anoncvs.fr.openbsd.org:/cvs
+TERMINAL=terminator
 
 HISTFILE=$HOME/.history
 HISTSIZE=1048576
 SAVEHIST=1048576
 
+DEBFULLNAME='Pierre Carrier'
+DEBEMAIL='pierre@spotify.com'
 
-_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
-
-
-export PATH PACKAGEROOT PKG_PATH PAGER CVSROOT EDITOR HISTFILE HISTSIZE SAVEHIST ARCHFLAGS _JAVA_OPTIONS
+export PATH EDITOR PAGER TERMINAL HISTFILE HISTSIZE SAVEHIST DEBFULLNAME DEBEMAIL
+eval $(keychain --quiet --eval)

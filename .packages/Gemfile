@@ -1,0 +1,21 @@
+source 'http://rubygems.org'
+
+%w[
+  moob
+  pry
+  awesome_print
+  wukong
+
+  open4
+  net-ssh
+  thor
+  pg
+  json
+
+  rack
+  rack-test
+
+  haml
+  sinatra
+  ratom
+].each { |g| gem g }
