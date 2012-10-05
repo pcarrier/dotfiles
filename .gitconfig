@@ -40,7 +40,7 @@
 	wd = diff --word-diff
 	co = checkout
 	cl = clone
-	cm = commit
+	cm = commit -v
 	st = status
 	where = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
 	sr = svn rebase
@@ -64,3 +64,5 @@
 [merge "dpkg-mergechangelogs"]
 	name = debian/changelog merge driver
 	driver = dpkg-mergechangelogs -m %O %A %B %A
+[rebase]
+	autosquash = true
