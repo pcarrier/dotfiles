@@ -71,3 +71,5 @@ sprunge() { curl -F 'sprunge=<-' http://sprunge.us; }
 autoload -Uz compinit && compinit
 
 alias lf="awk -F '{print $NF;}'"
+
+HISTFILE="$HOME/.history"
