@@ -6,7 +6,7 @@ autoload -U age && age
 
 zmodload zsh/complist
 
-eval $(dircolors)
+[ -x /usr/bin/dircolors ] && eval $(dircolors)
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' extra-verbose true

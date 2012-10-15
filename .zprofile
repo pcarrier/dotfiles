@@ -1,8 +1,10 @@
 PATH="$HOME/.gem/ruby/1.9.1/bin:$HOME/bin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/plan9/bin"
 
+if [ -d /etc/profile.d ]; then
 for f in /etc/profile.d/*.sh; do
 	. $f
 done
+fi
 
 EDITOR=vim
 TERMINAL=terminator
