@@ -1,15 +1,15 @@
 [user]
 	name = Pierre Carrier
-	email = pierre@spotify.com
+	email = pierre@gcarrier.fr
 [sendemail]
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
 	smtpencryption = tls
-	smtpuser = pierre@spotify.com
+	smtpuser = pierre@gcarrier.fr
 [status]
 	showUntrackedFiles = normal
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/pierre/.gitignore_global
 	attributesfile = ~/.gitattributes_global
 [push]
 	default = tracking
@@ -45,16 +45,17 @@
 	where = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
 	sr = svn rebase
 	sd = svn dcommit
+	review = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-master}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; BASE_SHA=$(git merge-base $BRANCH $SHA); git difftool $BASE_SHA $SHA;' -"
 [difftool "sourcetree"]
-	cmd = /Applications/Kaleidoscope.app/Contents/MacOS/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/local/bin/ksdiff $LOCAL $REMOTE
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /usr/local/bin/ksdiff --merge --output $MERGED --base $BASE -- $LOCAL $REMOTE
 	trustExitCode = true
 [github]
 	user = pcarrier
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [diff]
@@ -66,3 +67,12 @@
 	driver = dpkg-mergechangelogs -m %O %A %B %A
 [rebase]
 	autosquash = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+[credential]
+	helper = osxkeychain
