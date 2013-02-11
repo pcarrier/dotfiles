@@ -1,4 +1,4 @@
-PATH="$HOME/.gem/ruby/1.9.1/bin:$HOME/bin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/plan9/bin"
+PATH="$HOME/bin:$HOME/go/bin:$HOME/repos/go/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 if [ -d /etc/profile.d ]; then
 for f in /etc/profile.d/*.sh; do
@@ -15,5 +15,7 @@ SAVEHIST=1048576
 DEBFULLNAME='Pierre Carrier'
 DEBEMAIL='pierre@gcarrier.fr'
 
-export PATH EDITOR PAGER TERMINAL HISTSIZE SAVEHIST DEBFULLNAME DEBEMAIL
+GOPATH="$HOME/go"
+
+export PATH EDITOR PAGER TERMINAL HISTSIZE SAVEHIST DEBFULLNAME DEBEMAIL GOPATH
 eval $(keychain --quiet --eval)

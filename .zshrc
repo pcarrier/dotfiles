@@ -4,6 +4,10 @@ zmodload -a colors
 zmodload -a autocomplete
 autoload -U age && age
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
 zmodload zsh/complist
 
 [ -x /usr/bin/dircolors ] && eval $(dircolors)
@@ -40,9 +44,9 @@ PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[magenta]%}%1~ 
 alias sshow="opshost show"
 alias vin="sublime"
 alias vinn="sublime -n"
-alias rmterm="mterm -o'-A -lroot'"
-alias ops="opshost"
 alias dotgit="GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME git"
+alias lf="awk -F '{print $NF}'"
+alias ag="ag -a"
 
 alias -g G='|egrep'
 alias -g S='|sort'
@@ -70,6 +74,17 @@ sprunge() { curl -F 'sprunge=<-' http://sprunge.us; }
 
 autoload -Uz compinit && compinit
 
-alias lf="awk -F '{print $NF;}'"
-
 HISTFILE="$HOME/.history"
+
+source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias d="ssh debian"
+alias git=hub
+
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+RUBIES=(~/.rubies/*)
+chruby 1.9
+
+function aman() {
+	man -t "$@" | open -f -a /Applications/Preview.app
+}
