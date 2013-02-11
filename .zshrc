@@ -45,6 +45,7 @@ alias sshow="opshost show"
 alias vin="sublime"
 alias vinn="sublime -n"
 alias dotgit="GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME git"
+alias dottig="GIT_DIR=$HOME/repos/dotfiles.git GIT_WORK_TREE=$HOME tig"
 alias lf="awk -F '{print $NF}'"
 alias ag="ag -a"
 
