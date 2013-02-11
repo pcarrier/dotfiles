@@ -40,7 +40,7 @@ af-add=scaletempo
 ## 2.0=>headphones
 #af-add=bs2b
 
-ao=pulse
+#ao=pulse
 softvol=yes
 softvol-max=1000.0
 volstep=1
