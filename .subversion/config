@@ -3,11 +3,8 @@
 # store-passwords = no
 # store-auth-creds = no
 [helpers]
-# editor-cmd = editor (vi, emacs, notepad, etc.)
-# diff-cmd = diff_program (diff, gdiff, etc.)
-# diff3-cmd = diff3_program (diff3, gdiff3, etc.)
-# diff3-has-program-arg = [yes | no]
-# merge-tool-cmd = merge_command
+diff-cmd = ksdiff
+merge-tool-cmd = ksdiff
 [tunnels]
 # ssh = $SVN_SSH ssh -q
 # rsh = rsh
