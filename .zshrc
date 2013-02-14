@@ -41,6 +41,8 @@ autoload -U colors && colors
 PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
 #RPS1="%M:%d"
 
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 alias sshow="opshost show"
 alias vin="sublime"
 alias vinn="sublime -n"
@@ -85,6 +87,8 @@ alias git=hub
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 RUBIES=(~/.rubies/*)
 chruby 1.9
+
+source $HOME/repos/go/misc/zsh/go
 
 function aman() {
 	man -t "$@" | open -f -a /Applications/Preview.app
