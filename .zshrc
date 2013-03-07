@@ -86,7 +86,7 @@ alias git=hub
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 RUBIES=(~/.rubies/*)
-chruby 1.9
+chruby 2.0
 
 source $HOME/repos/go/misc/zsh/go
 
