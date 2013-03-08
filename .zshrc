@@ -39,8 +39,8 @@ case $TERM in
 esac
 
 autoload -U colors && colors
-PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}\$(vcprompt -f '%b:%r ')%# "
-#RPS1="%M:%d"
+PS1="%{$fg[green]%}%n%{$fg[black]%}@%{$fg[blue]%}%m %{$fg[magenta]%}%1~ %{$fg[yellow]%}\$(vcprompt -f '%b:%r ')%{$fg[black]%}%# %{$reset_color%}"
+RPS1="%{$fg[white]%}%M:%d%{$reset_color%}"
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
