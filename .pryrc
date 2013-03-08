@@ -1,10 +1,4 @@
 #!/usr/bin/env ruby
 
-require 'time'
-require 'rubygems'
-require 'awesome_print'
-require 'json'
-require 'yaml'
-require 'socket'
-
+%w[rubygems time uri awesome_print json yaml socket].each {|m| require m}
 Pry.print = proc { |output, value| output.puts value.ai }
