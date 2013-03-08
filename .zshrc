@@ -29,6 +29,7 @@ setopt no_hup no_clobber print_exit_value
 setopt extendedglob glob_dots
 setopt correct
 setopt completealiases
+setopt prompt_subst
 
 case $TERM in
     rxvt|*term)
@@ -38,7 +39,7 @@ case $TERM in
 esac
 
 autoload -U colors && colors
-PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}%# "
+PS1="%{%B$fg[green]%}%n%{$reset_color%B%}@%{$fg[blue]%}%m %{%b$fg[magenta]%}%1~ %{$reset_color%}\$(vcprompt -f '%b:%r ')%# "
 #RPS1="%M:%d"
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
