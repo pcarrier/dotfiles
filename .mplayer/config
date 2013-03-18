@@ -25,9 +25,9 @@ ass=yes
 ass-font-scale=2.2
 subfont-text-scale=2.2
 ## gcarrier's favorite
-#subfont='Adobe Garamond Pro'
+subfont='Adobe Garamond Pro'
 ## Requires MS fonts
-subfont='Georgia'
+#subfont='Georgia'
 embeddedfonts=yes
 
 #############
