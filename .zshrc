@@ -39,7 +39,7 @@ case $TERM in
 esac
 
 autoload -U colors && colors
-PS1="%{$fg[green]%}%n%{$fg[black]%}@%{$fg[blue]%}%m %{$fg[magenta]%}%1~ %{$fg[yellow]%}\$(vcprompt -f '%b:%r ')%{$fg[black]%}%# %{$reset_color%}"
+PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[magenta]%}%1~ %{$fg[yellow]%}\$(vcprompt -f '%b:%r ')%{$reset_color%}%# %{$reset_color%}"
 RPS1="%{$fg[white]%}%M:%d%{$reset_color%}"
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
@@ -61,15 +61,9 @@ hash -d ssd="/media/ssd"
 hash -d hdd="/media/hdd"
 hash -d spotifiles="/media/spotifiles"
 
-if [ -n "${ITERM_SESSION_ID}" ] # ugly way to spot OSX
-then
-	alias ls="ls -liFG"
-else
-	alias ls="ls -liF --color"
-fi
-
 bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
+bindkey '\e[3~' delete-char
 
 mkcd() { mkdir -p "$1"; cd "$1"; }
 mtar() { tarparms="$1"; shift; for fn in $@; do tar "$tarparms" "$fn"; done; }
@@ -80,8 +74,10 @@ autoload -Uz compinit && compinit
 
 HISTFILE="$HOME/.history"
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+alias ls="ls -liFG"
 alias d="ssh debian"
 alias git=hub
 
