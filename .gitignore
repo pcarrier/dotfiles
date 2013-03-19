@@ -2,7 +2,8 @@ Applications/
 Desktop/
 Documents/
 Downloads/
-Library/
+Library/*
+!Library/Application Support/Sublime Text 2/Packages/User/
 Movies/
 Music/
 Pictures/
@@ -40,6 +41,8 @@ tmp
 .serverauth.*
 
 # crap
+.rubies/
+.codeintel/
 .IntelliJIdea10/
 .IntelliJIdea11/
 .CFUserTextEncoding
@@ -59,10 +62,6 @@ tmp
 .zcompdump
 .zsh-update
 
-# managed via .vim/update_bundles
-.vim/bundle/
-!.vim/bundle/.keep
-
 # histories (bash, zsh, gdb, irb, less)
 .*history
-.lesshst
+.*hst
