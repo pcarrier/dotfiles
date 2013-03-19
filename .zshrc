@@ -80,6 +80,8 @@ source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ls="ls -liFG"
 alias d="ssh debian"
 alias git=hub
+alias be="bundle exec"
+alias ber="bundle exec rake"
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 RUBIES=(~/.rubies/*)
