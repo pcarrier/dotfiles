@@ -80,8 +80,11 @@ source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ls="ls -liFG"
 alias d="ssh debian"
 alias git=hub
-alias be="bundle exec"
-alias ber="bundle exec rake"
+alias b=bundle
+alias be="b exec"
+alias ber="be rake"
+alias bi="b install --path vendor"
+alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 RUBIES=(~/.rubies/*)
@@ -91,4 +94,11 @@ source $HOME/repos/go/misc/zsh/go
 
 function aman() {
 	man -t "$@" | open -f -a /Applications/Preview.app
+}
+
+function g() {
+	if [[ ! -d ~/repos/$1 ]]; then
+		git clone git@github.com:airbnb/$1 ~/repos/$1
+	fi
+	cd ~/repos/$1
 }

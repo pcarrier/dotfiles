@@ -26,7 +26,7 @@
 	"show_full_path": true,
 	"show_tab_close_buttons": false,
 	"spell_check": true,
-	"theme": "AppKit.sublime-theme",
+	"theme": "Soda Light.sublime-theme",
 	"trim_trailing_white_space_on_save": false,
 	"use_simple_full_screen": true
 }
