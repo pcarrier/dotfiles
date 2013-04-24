@@ -101,4 +101,5 @@ function g() {
 		git clone git@github.com:airbnb/$1 ~/repos/$1
 	fi
 	cd ~/repos/$1
+	cloc .
 }
