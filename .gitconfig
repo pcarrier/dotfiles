@@ -5,7 +5,7 @@
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
 	smtpencryption = tls
-	smtpuser = pierre@gcarrier.fr
+	smtpuser = geoffroy.carrier@gmail.com
 [status]
 	showUntrackedFiles = normal
 [core]
