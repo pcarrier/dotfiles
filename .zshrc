@@ -78,7 +78,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias ls="ls -liFG"
-alias d="ssh debian"
 alias git=hub
 alias b=bundle
 alias be="b exec"
