@@ -5,4 +5,8 @@
 .idea
 *.iml
 atlassian-ide-plugin.xml
+dependency-reduced-pom.xml
 target/
+.classpath
+.project
+.settings/
