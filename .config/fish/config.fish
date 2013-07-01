@@ -1,5 +1,4 @@
-set -gx EDITOR vim
-set -gx PAGER vimpager
+set -gx EDITOR emacsclient
 set -gx HOSTNAME (hostname)
 set -gx GOPATH $HOME/go
 

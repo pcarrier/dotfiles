@@ -4,15 +4,15 @@ function fish_prompt --description 'Write out the prompt'
   if not set -q __prompt_hostname
     set -g __prompt_hostname (hostname|cut -d . -f 1)
   end
-  
+
   if not set -q __prompt_normal
     set -g __prompt_normal (set_color normal)
   end
-  
+
   if not set -q __prompt_cwd
     set -g __prompt_cwd (set_color $fish_color_cwd)
   end
-  
+
   if not set -q __prompt_error
     set -g __prompt_error (set_color $fish_color_error)
   end

@@ -12,7 +12,7 @@
 	excludesfile = /Users/pierre/.gitignore_global
 	attributesfile = ~/.gitattributes_global
 [push]
-	default = tracking
+	default = current
 [rerere]
 	enabled = 1
 	autoupdate = 1
@@ -46,6 +46,14 @@
 	sr = svn rebase
 	sd = svn dcommit
 	review = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-master}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; BASE_SHA=$(git merge-base $BRANCH $SHA); git difftool $BASE_SHA $SHA;' -"
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 
