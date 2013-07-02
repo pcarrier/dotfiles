@@ -26,6 +26,7 @@
       sentence-end-double-space nil
       mouse-yank-at-point t
       default-frame-alist '((width . 120) (height . 60))
+      ruby-deep-indent-paren nil
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
