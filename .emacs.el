@@ -104,7 +104,7 @@
 (global-set-key (kbd "C-c f") 'fiplr-find-file)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (define-key global-map (kbd "C-+") 'text-scale-increase)
-(define-key global-map (kbd "C--") 'text-scale-decrease)
+(define-key global-map (kbd "C-=") 'text-scale-decrease)
 
 ;; Don't hate, I like the OSX style
 (global-set-key [home] 'beginning-of-buffer)
