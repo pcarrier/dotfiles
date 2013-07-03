@@ -161,5 +161,9 @@
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+;; When I kill a buffer, I'm done with it.
+;; So feel free to release emacsclient
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
 ;; Let's gooo!
 (server-start)

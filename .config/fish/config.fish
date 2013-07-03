@@ -1,4 +1,6 @@
 set -gx EDITOR emacsclient
+set -gx ALTERNATE_EDITOR emacs
+set -gx VISUAL emacsclient
 set -gx HOSTNAME (hostname)
 set -gx GOPATH $HOME/go
 
