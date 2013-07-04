@@ -157,7 +157,8 @@
 (global-set-key (kbd "C-x C-i") 'imenu)
 
 ;; Window jumper with M-arrow
-(windmove-default-keybindings) ; 'meta)
+;(windmove-default-keybindings 'meta)
+;(setq windmove-wrap-around t)
 
 ;; Ace Jump
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
@@ -206,6 +207,7 @@
 ;(add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 
 ;; Let's gooo!
 (server-start)
