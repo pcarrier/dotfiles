@@ -1,7 +1,7 @@
 ;; Hey dude, welcome to Emacs.
 ;; Use C-h v and C-h f to get docs for vars and fun.
 
-(setq save-plate t
+(setq save-place t
       line-number-mode t
       column-number-mode t
       size-indication-mode t
@@ -30,7 +30,10 @@
       european-calendar-style t
       uniquify-buffer-name-style 'post-forward-angle-brackets
       uniquify-after-kill-buffer-p t
-      projectile-enable-caching t
+      ac-auto-show-menu t
+      ac-use-quick-help t
+      ac-quick-help-delay 0.1
+      ac-dwim t
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
@@ -39,16 +42,17 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+
 (setq-default indent-tabs-mode nil      ; Airbnb says tabs are for Makefiles
               indicate-empty-lines t
               imenu-auto-rescan t)
 
-
 (require 'package)
 (package-initialize)
-(dolist (p '(ido-ubiquitous
+(dolist (p '(undo-tree
              rainbow-delimiters
              multiple-cursors
+             ace-jump-mode
              paredit
              git-commit-mode
              magit
@@ -60,15 +64,17 @@
              smex
              idle-highlight-mode
              ffap
-             projectile))
+             projectile
+             auto-complete
+             ac-nrepl))
   (when (not (package-installed-p p))
     (package-install p)))
 
-
 (dolist (r '(multiple-cursors
-             paredit
              saveplace
-             uniquify))
+             uniquify
+             auto-complete-config
+             ac-nrepl))
   (require r))
 
 ;; Stupid under OSX, it's free ;)
@@ -80,19 +86,22 @@
 (mouse-wheel-mode t)
 (global-hl-line-mode t)
 
-(if (display-graphic-p)
-    (progn
-      (set-default-font "Consolas 14")
-      (load-theme 'leuven)))
+(set-default-font "Consolas 14")
+(load-theme 'leuven)
+(set-face-background hl-line-face "snow1")
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (ido-mode t)
-(ido-ubiquitous t)
 (projectile-global-mode)
 (smex-initialize)
 
+;; Auto-complete awesomeness
+(ac-config-default)
+(add-to-list 'ac-modes 'nrepl-mode)
+
 (show-paren-mode 1)
 (global-whitespace-mode t)
+(global-undo-tree-mode)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
@@ -134,6 +143,9 @@
 ;; Window jumper with M-arrow (no parm for S-)
 (windmove-default-keybindings 'meta)
 
+;; Ace Jump
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
 ;; Eshell
 ;; Start/join
 (global-set-key (kbd "C-x m") 'eshell)
@@ -142,24 +154,6 @@
 
 ;; Git
 (global-set-key (kbd "C-c g") 'magit-status)
-
-;; Lisp
-(define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
-(define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
-
-(defun pretty-fns ()
-  (font-lock-add-keywords
-   nil `(("(\\(\\<fn\\>\\)"
-          (0 (progn (compose-region (match-beginning 1) (match-end 1) ?\u0192)
-                    nil))))))
-(add-hook 'prog-mode-hook 'pretty-fns)
-
-(defun pretty-lambdas ()
-  (font-lock-add-keywords
-   nil `(("(?\\(lambda\\>\\)"
-          (0 (progn (compose-region (match-beginning 1) (match-end 1) ?\u03bb)
-                    nil))))))
-(add-hook 'prog-mode-hook 'pretty-lambdas)
 
 (defun sudo-it (&optional arg)
   (interactive "p")
@@ -171,7 +165,6 @@
 ;; So feel free to release emacsclient
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
-
 ;; Multi-line ido
 (defun ido-disable-line-truncation ()
   (set (make-local-variable 'truncate-lines) nil))
@@ -179,11 +172,8 @@
 (defun ido-define-keys ()
   ;; C-n/p is more intuitive in vertical layout
   (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
-  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
-  ;; And I still like my arrow keys every now and then
-  (define-key ido-completion-map (kbd "<down>") 'ido-next-match)
-  (define-key ido-completion-map (kbd "<up>") 'ido-prev-match)
-  )
+  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
+
 (add-hook 'ido-setup-hook 'ido-define-keys)
 (setq ido-decorations (quote ("\n> "
                               ""
@@ -196,6 +186,10 @@
                               " [Not readable]"
                               " [Too big]"
                               " [Confirm]")))
+
+(add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 
 ;; Let's gooo!
 (server-start)
