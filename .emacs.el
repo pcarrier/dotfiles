@@ -5,6 +5,7 @@
       line-number-mode t
       column-number-mode t
       size-indication-mode t
+      inhibit-splash-screen t
       inhibit-startup-message t
       inhibit-startup-echo-area-message t
       tramp-default-method "ssh"
@@ -16,8 +17,7 @@
       ido-auto-merge-work-directories-length nil
       ido-enter-matching-directory 'only
       ido-use-virtual-buffers t
-      ido-max-prospects 10
-      next-screen-context-lines 10
+      next-screen-context-lines 5
       frame-title-format '(buffer-file-name "%f" ("%b"))
       diff-switches "-u"
       visible-bell t
@@ -27,6 +27,10 @@
       mouse-yank-at-point t
       default-frame-alist '((width . 120) (height . 60))
       ruby-deep-indent-paren nil
+      european-calendar-style t
+      uniquify-buffer-name-style 'post-forward-angle-brackets
+      uniquify-after-kill-buffer-p t
+      projectile-enable-caching t
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
@@ -55,17 +59,19 @@
              coffee-mode
              smex
              idle-highlight-mode
-             fiplr
-             ffap))
+             ffap
+             projectile))
   (when (not (package-installed-p p))
     (package-install p)))
 
 
 (dolist (r '(multiple-cursors
              paredit
-             saveplace))
+             saveplace
+             uniquify))
   (require r))
 
+;; Stupid under OSX, it's free ;)
 ;(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -77,16 +83,16 @@
 (if (display-graphic-p)
     (progn
       (set-default-font "Consolas 14")
-      (load-theme 'tango)
-      ;;(list-colors-display) can help
-      (set-face-background hl-line-face "white")))
+      (load-theme 'leuven)))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (ido-mode t)
 (ido-ubiquitous t)
+(projectile-global-mode)
+(smex-initialize)
+
 (show-paren-mode 1)
 (global-whitespace-mode t)
-(smex-initialize)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
@@ -102,7 +108,6 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-(global-set-key (kbd "C-c f") 'fiplr-find-file)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -165,6 +170,32 @@
 ;; When I kill a buffer, I'm done with it.
 ;; So feel free to release emacsclient
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
+
+;; Multi-line ido
+(defun ido-disable-line-truncation ()
+  (set (make-local-variable 'truncate-lines) nil))
+(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
+(defun ido-define-keys ()
+  ;; C-n/p is more intuitive in vertical layout
+  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+  ;; And I still like my arrow keys every now and then
+  (define-key ido-completion-map (kbd "<down>") 'ido-next-match)
+  (define-key ido-completion-map (kbd "<up>") 'ido-prev-match)
+  )
+(add-hook 'ido-setup-hook 'ido-define-keys)
+(setq ido-decorations (quote ("\n> "
+                              ""
+                              "\n  "
+                              "\n  ..."
+                              "["
+                              "]"
+                              " [No match]"
+                              " [Matched]"
+                              " [Not readable]"
+                              " [Too big]"
+                              " [Confirm]")))
 
 ;; Let's gooo!
 (server-start)
