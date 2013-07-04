@@ -57,6 +57,9 @@
 
 (require 'package)
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 (dolist (p '(undo-tree
              rainbow-delimiters
              multiple-cursors
