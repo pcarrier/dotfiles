@@ -11,7 +11,8 @@
       tramp-default-method "ssh"
       ido-enable-flex-matching t
       ido-everywhere t
-      ido-use-filename-at-point 'guess
+      ; doesn't play nice with projectile
+      ;; ido-use-filename-at-point 'guess
       ido-create-new-buffer 'always
       ido-enable-prefix nil
       ido-auto-merge-work-directories-length nil
@@ -21,8 +22,7 @@
       frame-title-format '(buffer-file-name "%f" ("%b"))
       diff-switches "-u"
       visible-bell t
-      color-theme-is-global t
-      shift-select-mode nil
+      ; shift-select-mode nil
       sentence-end-double-space nil
       mouse-yank-at-point t
       default-frame-alist '((width . 120) (height . 60))
@@ -31,9 +31,17 @@
       uniquify-buffer-name-style 'post-forward-angle-brackets
       uniquify-after-kill-buffer-p t
       ac-auto-show-menu t
+      ac-auto-start t
+      ac-disable-inline t
       ac-use-quick-help t
-      ac-quick-help-delay 0.1
       ac-dwim t
+      ac-delay 0.2
+      ac-quick-help-delay 0.2
+      ; pop-up-frames t ; get ready for some frames
+      undo-tree-auto-save-history t
+      undo-tree-visualizer-diff t
+      undo-tree-visualizer-timestamps t
+      ag-highlight-search t
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
@@ -66,7 +74,11 @@
              ffap
              projectile
              auto-complete
-             ac-nrepl))
+             ac-nrepl
+             nginx-mode
+             ag
+             nyan-mode
+             guru-mode))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -85,6 +97,7 @@
 (blink-cursor-mode -1)
 (mouse-wheel-mode t)
 (global-hl-line-mode t)
+(guru-global-mode t)
 
 (set-default-font "Consolas 14")
 (load-theme 'leuven)
@@ -140,8 +153,8 @@
 ;; imenu jumps
 (global-set-key (kbd "C-x C-i") 'imenu)
 
-;; Window jumper with M-arrow (no parm for S-)
-(windmove-default-keybindings 'meta)
+;; Window jumper with M-arrow
+(windmove-default-keybindings) ; 'meta)
 
 ;; Ace Jump
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
@@ -187,7 +200,7 @@
                               " [Too big]"
                               " [Confirm]")))
 
-(add-hook 'clojure-mode-hook 'paredit-mode)
+;(add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 
