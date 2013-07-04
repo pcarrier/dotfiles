@@ -1,6 +1,6 @@
-set -gx EDITOR emacsclient
+set -gx EDITOR "emacsclient --quiet --create-frame"
 set -gx ALTERNATE_EDITOR emacs
-set -gx VISUAL emacsclient
+set -gx VISUAL "emacsclient --quiet --create-frame"
 set -gx HOSTNAME (hostname)
 set -gx GOPATH $HOME/go
 
