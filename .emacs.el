@@ -74,13 +74,14 @@
 (mouse-wheel-mode t)
 (global-hl-line-mode t)
 
-(set-default-font "Consolas 14")
-(load-theme 'tango)
-;;(list-colors-display) can help
-(set-face-background hl-line-face "white")
+(if (display-graphic-p)
+    (progn
+      (set-default-font "Consolas 14")
+      (load-theme 'tango)
+      ;;(list-colors-display) can help
+      (set-face-background hl-line-face "white")))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-
 (ido-mode t)
 (ido-ubiquitous t)
 (show-paren-mode 1)
