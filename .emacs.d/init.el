@@ -42,6 +42,8 @@
       undo-tree-visualizer-diff t
       undo-tree-visualizer-timestamps t
       ag-highlight-search t
+      ns-use-native-fullscreen nil
+      scheme-program-name "csi -:c"
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
@@ -81,7 +83,10 @@
              nginx-mode
              ag
              nyan-mode
-             guru-mode))
+             guru-mode
+             debian-changelog-mode
+             scheme-complete
+             dtrt-indent))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -89,7 +94,8 @@
              saveplace
              uniquify
              auto-complete-config
-             ac-nrepl))
+             ac-nrepl
+             debian-changelog-mode))
   (require r))
 
 ;; Stupid under OSX, it's free ;)
@@ -100,9 +106,10 @@
 (blink-cursor-mode -1)
 (mouse-wheel-mode t)
 (global-hl-line-mode t)
-(guru-global-mode t)
+;(guru-global-mode t)
+(dtrt-indent-mode 1)
 
-(set-default-font "Consolas 14")
+(set-default-font "Source Code Pro 14")
 (load-theme 'leuven)
 (set-face-background hl-line-face "snow1")
 
@@ -204,7 +211,7 @@
                               " [Too big]"
                               " [Confirm]")))
 
-;(add-hook 'clojure-mode-hook 'paredit-mode)
+;;(add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
