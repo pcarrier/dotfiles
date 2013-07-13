@@ -112,7 +112,7 @@
 
 (set-default-font "Source Code Pro 14")
 (load-theme 'leuven)
-;;(set-face-background hl-line-face "snow1")
+(set-face-background hl-line-face "ghost white")
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (ido-mode t)
