@@ -1,3 +1,3 @@
 function e
-  emacsclient --create-frame --no-wait --quiet $argv
+  emacsclient --quiet $argv
 end

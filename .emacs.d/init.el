@@ -11,7 +11,7 @@
       tramp-default-method "ssh"
       ido-enable-flex-matching t
       ido-everywhere t
-      ; doesn't play nice with projectile
+      ;; doesn't play nice with projectile
       ;; ido-use-filename-at-point 'guess
       ido-create-new-buffer 'always
       ido-enable-prefix nil
@@ -21,8 +21,8 @@
       next-screen-context-lines 5
       frame-title-format '(buffer-file-name "%f" ("%b"))
       diff-switches "-u"
-      visible-bell t
-      ; shift-select-mode nil
+      ;; visible-bell t
+      shift-select-mode nil
       sentence-end-double-space nil
       mouse-yank-at-point t
       default-frame-alist '((width . 120) (height . 60))
@@ -35,12 +35,11 @@
       ac-disable-inline t
       ac-use-quick-help t
       ac-dwim t
-      ; pop-up-frames t ; get ready for some frames
+      ;; pop-up-frames t ; pops too many frames
       undo-tree-auto-save-history t
       undo-tree-visualizer-diff t
       undo-tree-visualizer-timestamps t
       ag-highlight-search t
-      ns-use-native-fullscreen nil
       scheme-program-name "csi -:c"
       projectile-enable-caching t
       whitespace-style '(face
@@ -74,14 +73,13 @@
              nrepl
              coffee-mode
              smex
-             idle-highlight-mode
+             ;; idle-highlight-mode
              ffap
              projectile
              auto-complete
              ac-nrepl
              nginx-mode
              ag
-             nyan-mode
              debian-changelog-mode
              scheme-complete
              dtrt-indent
@@ -98,7 +96,7 @@
   (require r))
 
 ;; Stupid under OSX, it's free ;)
-;(menu-bar-mode -1)
+;;(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (tooltip-mode -1)
@@ -107,10 +105,14 @@
 (global-hl-line-mode t)
 (dtrt-indent-mode 1)
 (delete-selection-mode 1)
+(global-linum-mode 1)
+(show-paren-mode 1)
+(global-whitespace-mode t)
+(global-undo-tree-mode)
 
 (set-default-font "Source Code Pro 14")
 (load-theme 'leuven)
-(set-face-background hl-line-face "snow1")
+;;(set-face-background hl-line-face "snow1")
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (ido-mode t)
@@ -122,12 +124,8 @@
 (ac-config-default)
 (add-to-list 'ac-modes 'nrepl-mode)
 
-(show-paren-mode 1)
-(global-whitespace-mode t)
-(global-undo-tree-mode)
-
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'idle-highlight-mode)
+;;(add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 ;; Multiple Cursors awesomeness
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -138,7 +136,8 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-(global-set-key (kbd "M-/") 'hippie-expand)
+;;(global-set-key (kbd "M-/") 'hippie-expand)
+
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
@@ -157,8 +156,8 @@
 (global-set-key (kbd "C-x C-i") 'imenu)
 
 ;; Window jumper with M-arrow
-;(windmove-default-keybindings 'meta)
-;(setq windmove-wrap-around t)
+(windmove-default-keybindings 'meta)
+(setq windmove-wrap-around t)
 
 ;; Ace Jump
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
