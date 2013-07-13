@@ -35,8 +35,6 @@
       ac-disable-inline t
       ac-use-quick-help t
       ac-dwim t
-      ac-delay 0.2
-      ac-quick-help-delay 0.2
       ; pop-up-frames t ; get ready for some frames
       undo-tree-auto-save-history t
       undo-tree-visualizer-diff t
@@ -44,13 +42,14 @@
       ag-highlight-search t
       ns-use-native-fullscreen nil
       scheme-program-name "csi -:c"
+      projectile-enable-caching t
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
                          tab-mark)
-      package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+      package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
 
 
 (setq-default indent-tabs-mode nil      ; Airbnb says tabs are for Makefiles
@@ -83,10 +82,11 @@
              nginx-mode
              ag
              nyan-mode
-             guru-mode
              debian-changelog-mode
              scheme-complete
-             dtrt-indent))
+             dtrt-indent
+             expand-region
+             ido-vertical-mode))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -94,8 +94,7 @@
              saveplace
              uniquify
              auto-complete-config
-             ac-nrepl
-             debian-changelog-mode))
+             ac-nrepl))
   (require r))
 
 ;; Stupid under OSX, it's free ;)
@@ -106,8 +105,8 @@
 (blink-cursor-mode -1)
 (mouse-wheel-mode t)
 (global-hl-line-mode t)
-;(guru-global-mode t)
 (dtrt-indent-mode 1)
+(delete-selection-mode 1)
 
 (set-default-font "Source Code Pro 14")
 (load-theme 'leuven)
@@ -115,6 +114,7 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (ido-mode t)
+(ido-vertical-mode t)
 (projectile-global-mode)
 (smex-initialize)
 
@@ -133,24 +133,17 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; Smex is da shit
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this) ;; Smex is da shit
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
-;; Don't hate, I like the OSX style
-(global-set-key [home] 'beginning-of-buffer)
-(global-set-key [end] 'end-of-buffer)
-(global-set-key (kbd "s-<left>") 'beginning-of-line)
-(global-set-key (kbd "s-<right>") 'end-of-line)
-(global-set-key (kbd "s-<up>") 'scroll-down)
-(global-set-key (kbd "s-<down>") 'scroll-up)
+;; expand-region is real nice
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Regexp all the things
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
@@ -188,28 +181,6 @@
 ;; When I kill a buffer, I'm done with it.
 ;; So feel free to release emacsclient
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-
-;; Multi-line ido
-(defun ido-disable-line-truncation ()
-  (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
-(defun ido-define-keys ()
-  ;; C-n/p is more intuitive in vertical layout
-  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
-  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
-
-(add-hook 'ido-setup-hook 'ido-define-keys)
-(setq ido-decorations (quote ("\n> "
-                              ""
-                              "\n  "
-                              "\n  ..."
-                              "["
-                              "]"
-                              " [No match]"
-                              " [Matched]"
-                              " [Not readable]"
-                              " [Too big]"
-                              " [Confirm]")))
 
 ;;(add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
