@@ -1,10 +1,12 @@
 ;; Hey dude, welcome to Emacs.
 ;; Use C-h v and C-h f to get docs for vars and fun.
 
-(setq save-place t
+(setq make-backup-files nil
+      auto-save-default nil
+      save-place t
       line-number-mode t
       column-number-mode t
-      size-indication-mode t
+      size-indication-mode nil
       inhibit-splash-screen t
       inhibit-startup-message t
       inhibit-startup-echo-area-message t
@@ -30,18 +32,15 @@
       european-calendar-style t
       uniquify-buffer-name-style 'post-forward-angle-brackets
       uniquify-after-kill-buffer-p t
-      ac-auto-show-menu t
-      ac-auto-start t
-      ac-disable-inline t
-      ac-use-quick-help t
       ac-dwim t
-      ;; pop-up-frames t ; pops too many frames
+      ;; pop-up-frames t ; pops just too many frames :)
       undo-tree-auto-save-history t
       undo-tree-visualizer-diff t
       undo-tree-visualizer-timestamps t
       ag-highlight-search t
       scheme-program-name "csi -:c"
-      projectile-enable-caching t
+      ;; Seems to cause some issues: projectile-enable-caching t
+      transient-mark-mode 1
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
@@ -73,7 +72,7 @@
              nrepl
              coffee-mode
              smex
-             ;; idle-highlight-mode
+             idle-highlight-mode
              ffap
              projectile
              auto-complete
@@ -109,8 +108,10 @@
 (show-paren-mode 1)
 (global-whitespace-mode t)
 (global-undo-tree-mode)
+;;(speedbar 1)
+(which-function-mode 1)
 
-(set-default-font "Source Code Pro 14")
+(set-frame-font "Consolas 14" nil t)
 (load-theme 'leuven)
 (set-face-background hl-line-face "ghost white")
 
@@ -122,10 +123,20 @@
 
 ;; Auto-complete awesomeness
 (ac-config-default)
-(add-to-list 'ac-modes 'nrepl-mode)
+
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+ (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
+(defun set-auto-complete-as-completion-at-point-function ()
+  (setq completion-at-point-functions '(auto-complete)))
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+(add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-;;(add-hook 'prog-mode-hook 'idle-highlight-mode)
+(add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 ;; Multiple Cursors awesomeness
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -185,6 +196,3 @@
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
-
-;; Let's gooo!
-(server-start)
