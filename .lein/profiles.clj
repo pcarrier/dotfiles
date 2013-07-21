@@ -12,4 +12,5 @@
                   [lein-nevam "0.1.2"]
                   [lein-pprint "1.1.1"]
                   [lein-light "0.0.27"]
-                  [lein-midje "3.0.1"]]}}
+                  [lein-midje "3.0.1"]]}
+ :fast {:eval-in :nrepl}}
