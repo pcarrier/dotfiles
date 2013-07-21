@@ -4,9 +4,6 @@
 (setq make-backup-files nil
       auto-save-default nil
       save-place t
-      line-number-mode t
-      column-number-mode t
-      size-indication-mode nil
       inhibit-splash-screen t
       inhibit-startup-message t
       inhibit-startup-echo-area-message t
@@ -34,13 +31,20 @@
       uniquify-after-kill-buffer-p t
       ac-dwim t
       ;; pop-up-frames t ; pops just too many frames :)
+
       undo-tree-auto-save-history t
       undo-tree-visualizer-diff t
       undo-tree-visualizer-timestamps t
+
+      isearch-allow-scroll t
+      ns-auto-hide-menu-bar t
+      ns-use-native-fullscreen nil
+      projectile-keymap-prefix (kbd "s-/")
+
+      projectile-ack-function '(ag-regexp)
       ag-highlight-search t
       scheme-program-name "csi -:c"
       ;; Seems to cause some issues: projectile-enable-caching t
-      transient-mark-mode 1
       whitespace-style '(face
                          trailing tabs empty
                          space-after-tab space-after-tab
@@ -48,7 +52,6 @@
       package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
-
 
 (setq-default indent-tabs-mode nil      ; Airbnb says tabs are for Makefiles
               indicate-empty-lines t
@@ -78,12 +81,20 @@
              auto-complete
              ac-nrepl
              nginx-mode
+             ruby-tools
              ag
              debian-changelog-mode
              scheme-complete
              dtrt-indent
              expand-region
-             ido-vertical-mode))
+             ido-vertical-mode
+             editorconfig
+             flymake-cursor
+             flymake-ruby
+             flymake-lua
+             flymake-coffee
+             align-cljlet
+             lua-mode))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -91,33 +102,43 @@
              saveplace
              uniquify
              auto-complete-config
-             ac-nrepl))
+             ac-nrepl
+             editorconfig
+             ruby-tools))
   (require r))
 
-;; Stupid under OSX, it's free ;)
-;;(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(tooltip-mode -1)
 (blink-cursor-mode -1)
-(mouse-wheel-mode t)
-(global-hl-line-mode t)
+(global-hl-line-mode 1)
 (dtrt-indent-mode 1)
 (delete-selection-mode 1)
 (global-linum-mode 1)
 (show-paren-mode 1)
-(global-whitespace-mode t)
-(global-undo-tree-mode)
-;;(speedbar 1)
+(global-whitespace-mode 1)
 (which-function-mode 1)
+(electric-indent-mode 1)
+(electric-layout-mode 1)
+(electric-pair-mode 1)
+(global-reveal-mode 1)
+(ido-mode 1)
+(ido-vertical-mode 1)
+(line-number-mode 1)
+(column-number-mode 1)
+(size-indication-mode -1)
+(global-visual-line-mode 1)
+(transient-mark-mode 1)
 
-(set-frame-font "Consolas 14" nil t)
-(load-theme 'leuven)
-(set-face-background hl-line-face "ghost white")
+;; Stupid under OSX, it's free ;)
+;;(menu-bar-mode -1)
+(when window-system
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1)
+  (mouse-wheel-mode 1)
+  (set-frame-font "Source Code Pro 12" nil t)
+  (load-theme 'leuven)
+  (set-face-background hl-line-face "ghost white"))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-(ido-mode t)
-(ido-vertical-mode t)
 (projectile-global-mode)
 (smex-initialize)
 
@@ -125,7 +146,7 @@
 (ac-config-default)
 
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
- (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
 (defun set-auto-complete-as-completion-at-point-function ()
@@ -134,9 +155,9 @@
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
-
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
+(add-hook 'prog-mode-hook (lambda () (flymake-mode 1)))
 
 ;; Multiple Cursors awesomeness
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -196,3 +217,23 @@
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+
+(defun untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer.
+   Including indent-buffer, which should not be called automatically on save."
+  (interactive)
+  (untabify-buffer)
+  (delete-trailing-whitespace)
+  (indent-buffer))
+
+(global-set-key (kbd "C-c i") 'cleanup-buffer)
+
+(server-start)
