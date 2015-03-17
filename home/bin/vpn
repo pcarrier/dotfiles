@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+wallet=$(qdbus org.kde.kwalletd /modules/kwalletd org.kde.KWallet.open kdewallet 0 vpn)
+pass=$(qdbus org.kde.kwalletd /modules/kwalletd readPassword "$wallet" Passwords twitter_ods vpn)
+
+printf "TWO FACTOR SPLIT TUNNEL\n${USER}\n${pass}\npush\n" | \
+	sudo openconnect --juniper vpn.twttr.com

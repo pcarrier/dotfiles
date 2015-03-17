@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+export DISPLAY=${DISPLAY:-:0}
+
+wallet=$(qdbus org.kde.kwalletd /modules/kwalletd org.kde.KWallet.open kdewallet 0 kerb)
+
+if [[ -n "$PASS" ]]
+then
+	qdbus org.kde.kwalletd /modules/kwalletd writePassword "$wallet" Passwords twitter_ods "$PASS" kerb >/dev/null
+else
+	klist -s && exit # still got a valid ticket
+	[[ cron == "$1" ]] && ( nm-online --quiet --exit || exit ) # silently leaves when not online
+	pass=$(qdbus org.kde.kwalletd /modules/kwalletd readPassword "$wallet" Passwords twitter_ods kerb)
+	kinit <<< "$pass" > /dev/null
+fi

@@ -1,0 +1,5 @@
+#!/bin/sh
+set -ex
+BRANCH="`git rev-parse --abbrev-ref HEAD`"
+git push origin :"$BRANCH"
+git push origin HEAD:"$BRANCH"

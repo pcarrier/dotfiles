@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for GIT_DIR in $HOME/src/*/.git
+do
+  export GIT_DIR
+  git pack-refs --all --prune
+done
