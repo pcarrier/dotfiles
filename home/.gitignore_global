@@ -1,0 +1,16 @@
+*.o
+*~
+*.swp
+*.iml
+*.ipr
+*.iws
+*.iml
+atlassian-ide-plugin.xml
+dependency-reduced-pom.xml
+/build/
+/target/
+/.classpath/
+/.gradle/
+/.idea/
+/.project/
+/.settings/

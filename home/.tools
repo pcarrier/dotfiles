@@ -1,0 +1,9 @@
+/home/aurora/tools/client
+#/home/devprod/tools/source/git.@NATIVE@
+#/home/devprod/tools/source/testing/git.@NATIVE@
+/home/devprod/git-review
+/home/devprod/packer
+/home/observe/tools/user
+/home/jschaumann/tools/jass
+/home/pseibel/tools/skirt
+/home/svcsvc/tools/client
