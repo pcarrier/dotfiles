@@ -1,0 +1,2 @@
+#!/bin/sh
+sed -e 's/ISODate(\([^)]*\))/\1/g' -e 's/ObjectId(\([^)]*\))/\1/g'

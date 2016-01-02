@@ -1,0 +1,2 @@
+#!/bin/sh
+xkbcomp -w0 -I$HOME/.xkb $HOME/.xkb/chromebook.xkb $DISPLAY

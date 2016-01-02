@@ -1,0 +1,11 @@
+Xft/Antialias 1
+Xft/DPI 98304
+Xft/HintStyle "hintfull"
+Xft/Hinting 1
+Xft/RGBA "none"
+Xft/lcdfilter "lcddefault"
+Net/ThemeName "Xfce"
+Net/CursorBlinkTime 250
+Gtk/FontName "Roboto Condensed, 10"
+Gtk/MenuImages 1
+Gtk/ButtonImages 1

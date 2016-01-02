@@ -1,0 +1,5 @@
+LABEL=arch /         btrfs rw,noatime,ssd,space_cache,compress=lzo 0 0
+LABEL=home /home     btrfs rw,noatime,ssd,space_cache,compress=lzo 0 0
+LABEL=boot /boot     ext2  rw,noatime 0 0
+LABEL=EFI  /boot/efi vfat  rw,noatime 0 0
+LABEL=swap none      swap  defaults 0 0

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/google-chrome-beta --profile-directory='Profile 1' --app='https://mail.google.com/mail/u/0/#inbox'

@@ -1,0 +1,137 @@
+# http://i3wm.org/docs/userguide.html
+
+exec --no-startup-id exec i3lock
+exec --no-startup-id exec feh --bg-tile ~/.x.gif
+exec --no-startup-id exec dunst
+exec --no-startup-id exec parcellite
+exec --no-startup-id exec wmname LG3D
+exec --no-startup-id exec xsettingsd
+
+font pango:PragmataPro 10
+
+focus_follows_mouse no
+
+set $mod Mod4
+#set $up l
+#set $down k
+#set $left j
+#set $right semicolon
+set $up Up
+set $down Down
+set $left Left
+set $right Right
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+floating_modifier $mod
+
+bindsym $mod+k exec exec scr
+bindsym $mod+Shift+k exec exec scr -s
+
+bindsym $mod+Return exec exec terminator
+bindsym $mod+q kill
+bindsym $mod+p exec exec dmenu_run -fn PragmataPro:10
+bindsym $mod+l exec exec i3lock
+bindsym $mod+Shift+l exec i3lock & exec systemctl suspend
+bindsym $mod+Shift+z exec exec ~/.screenlayout/desk.sh
+bindsym $mod+Shift+x exec exec ~/.screenlayout/single.sh
+
+#bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+Shift+Return exec DISPLAY=:100 terminator
+#bindsym $mod+Shift+p exec xpra_dmenu_run
+#bindsym $mod+Shift+o exec --no-startup-id xpra attach :100
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Control+$left  move workspace to output left
+bindsym $mod+Control+$down  move workspace to output down
+bindsym $mod+Control+$up    move workspace to output up
+bindsym $mod+Control+$right move workspace to output right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen
+
+bindsym $mod+s layout stacking
+bindsym $mod+e layout tabbed
+bindsym $mod+w layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+d focus child
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+e exec i3-msg exit
+
+mode "resize" {
+        bindsym $left  resize shrink width 32 px or 5 ppt
+        bindsym $down  resize grow height 32 px or 5 ppt
+        bindsym $up    resize shrink height 32 px or 5 ppt
+        bindsym $right resize grow width 32 px or 5 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bar {
+  binding_mode_indicator yes
+  position bottom
+  status_command exec i3status
+  font pango:PragmataPro 10
+  mode hide
+}
+
+hide_edge_borders both
+
+popup_during_fullscreen leave_fullscreen
+workspace_auto_back_and_forth yes
+
+workspace_layout stacking
