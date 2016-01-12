@@ -20,7 +20,12 @@ $GOPATH/bin:\
 /bin:/sbin:\
 /usr/games
 
-export VISUAL='nvim' EDITOR='nvim' MANPAGER=most BROWSER=google-chrome-beta
+export VISUAL='nvim' EDITOR='nvim' MANPAGER=most
+
+if [[ Darwin != $OS ]]; then
+  export BROWSER=google-chrome-beta
+fi
+
 export MACHINEID=$(dbus-uuidgen --get)
 export UNISONLOCALHOSTNAME="${HOSTNAME}_${MACHINEID}"
 export HISTSIZE=1048576 SAVEHIST=1048576 HISTFILE="$HOME/.history"
