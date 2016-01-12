@@ -1,1 +1,1 @@
-Server = https://mirrors.kernel.org/archlinux/$repo/os/x86_64
+Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
