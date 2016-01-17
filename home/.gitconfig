@@ -64,6 +64,7 @@
 	where = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
 	sr = svn rebase
 	sd = svn dcommit
+	purge = !git branch --merged | grep -v '*' | xargs git branch -d
 
 [merge "dpkg-mergechangelogs"]
 	name = debian/changelog merge driver
