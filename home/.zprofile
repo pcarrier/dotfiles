@@ -11,9 +11,11 @@ export PATH=\
 $HOME/.local/bin:\
 $HOME/bin:\
 $HOME/opt/go/bin:\
-$HOME/.gem/ruby/2.3.0/bin:\
 $HOME/.npm/bin:\
+$HOME/.gem/ruby/2.3.0/bin:\
+$HOME/Library/Python/2.7/bin:\
 $GOPATH/bin:\
+$HOME/ws/src/github.com/meteor/mdgscripts/bin:\
 /usr/bin/core_perl:/usr/bin/vendor_perl:\
 /usr/local/bin:/usr/local/sbin:\
 /usr/bin:/usr/sbin:\
