@@ -7,7 +7,7 @@
 	postBuffer = 209715200
 [user]
 	name = Pierre Carrier
-	email = pierre@gcarrier.fr
+	email = pierre@meteor.com
 [github]
 	user = pcarrier
 [sendemail]
@@ -37,6 +37,7 @@
 	ec = config --global -e
 	undo = reset HEAD~1 --mixed
 	amend = commit -av --amend
+	aamend = commit -av --amend --no-edit
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 	pr = !git push & hub pull-request
 	dc = describe --contains
