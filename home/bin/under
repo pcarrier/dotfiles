@@ -1,0 +1,103 @@
+#!/usr/bin/env ruby
+require 'openssl'
+require 'time'
+
+IDT=2
+ELL=true
+MULTIL=80
+MULTIS=100
+MULTISC=60
+
+class Raw < String; end
+
+def pppp o, indent
+  if S === o
+    o.ppp indent
+  elsif Raw === o
+    ' '*indent + o
+  elsif String === o and o.length > MULTIS
+    raw = o.inspect[1..-2]
+    chunks = raw.chars.to_a.each_slice(MULTISC).map{|cs|Raw.new("\"#{cs.join}\"")}
+    cat = S '\\str', ["bytes:#{o.length}"], *chunks
+    pppp(cat, indent)
+  elsif String === o
+    ' '*indent + o.inspect
+  else
+    ' '*indent + o.to_s
+  end
+end
+
+class S
+  def initialize n, md, es
+    @n = n
+    @md = md
+    @es = es
+    @es = [] if @es.nil?
+    @length = n.length + es.reduce(0){|a,e|a+(e.respond_to? :length and e.length or e.to_s.length)+1}
+  end
+
+  attr_reader :length
+
+  def ppp indent
+    if @es.nil?
+      ' '*indent + "(#{n})"
+    elsif @length < MULTIL
+      res = ' '*indent + "(#{@n} "
+      unders = @es.map{|e| pppp(e, 0)}
+      res += "#{unders.join(' ')})"
+    else
+      unders = @es.map{|e| pppp e, indent+IDT}
+      res = ' '*indent + "(#{@n}"
+      res += " ; #{@md.join(',')}" unless @md.empty?
+      res += "\n#{unders.join("\n")})"
+      res
+    end
+  end
+end
+
+def S n, md, *es
+  S.new n, md, es
+end
+
+def nameof o
+  cname = o.class.name.split('::').last.downcase
+  bname = case cname
+  when 'sequence' then 'seq'
+  when 'asn1data' then 'data'
+  else cname
+  end
+  "#{bname}/#{o.tag}"
+end
+
+def md o
+  md = []
+  md << "length:#{o.value.length}" if o.value.respond_to? :length
+  md
+end
+
+def sexp o
+  if OpenSSL::ASN1::ObjectId === o
+    return Raw.new ":#{o.value}" if o.value =~ /[A-Za-z_.-]/
+    Raw.new ":\"#{o.value}\""
+  elsif OpenSSL::ASN1::Integer === o
+    S nameof(o), md(o), o.value.to_i
+  elsif OpenSSL::ASN1::Null === o
+    Raw.new 'nil'
+  elsif OpenSSL::ASN1::PrintableString === o
+    o.value
+  elsif OpenSSL::ASN1::UTCTime === o
+    S nameof(o), md(o), o.value.iso8601
+  elsif OpenSSL::ASN1::GeneralizedTime === o
+    S nameof(o), md(o), o.value.iso8601
+  elsif OpenSSL::ASN1::Primitive === o
+    S nameof(o), md(o), o.value.to_s
+  elsif Enumerable === o.value
+    S nameof(o), md(o), *o.value.collect{|e| sexp e}
+  elsif o.value.length == 0
+    S nameof(o), md(o)
+  else
+  	S "#{nameof(o)}>", md(o), o.value.inspect
+  end
+end
+i = OpenSSL::ASN1.decode(ARGF.read)
+puts pppp sexp(i), 0

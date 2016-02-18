@@ -1,0 +1,2 @@
+#!/bin/sh
+jq -r '.["galaxy.meteor.com"].env|to_entries[]|"export "+.key+"="+.value' < $1
