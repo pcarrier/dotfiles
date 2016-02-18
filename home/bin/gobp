@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+print ARGF.read.split(' ').map{|s|s.to_i}.pack('c*')
