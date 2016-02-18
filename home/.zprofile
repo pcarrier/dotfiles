@@ -24,7 +24,9 @@ $HOME/ws/src/github.com/meteor/mdgscripts/bin:\
 
 export VISUAL='nvim' EDITOR='nvim' MANPAGER=most
 
-if [[ Darwin != $OS ]]; then
+if [[ Darwin = $OS ]]; then
+  eval $(docker-machine env dev)
+else
   export BROWSER=google-chrome-beta
 fi
 
