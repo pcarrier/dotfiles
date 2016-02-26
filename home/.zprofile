@@ -5,7 +5,7 @@ export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LC_COLLATE=C
 
 export PYTHON=python2.7
 
-export GOPATH=$HOME/ws GOROOT=$HOME/opt/go
+export GOPATH=$HOME/go GOROOT=$HOME/opt/go
 
 export PATH=\
 $HOME/.local/bin:\
