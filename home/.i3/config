@@ -1,7 +1,8 @@
 # http://i3wm.org/docs/userguide.html
 
-exec --no-startup-id exec i3lock
-exec --no-startup-id exec feh --bg-tile ~/.x.gif
+#exec --no-startup-id exec i3lock
+exec --no-startup-id exec pulseaudio
+exec --no-startup-id exec xsetroot -solid '#333'
 exec --no-startup-id exec dunst
 exec --no-startup-id exec parcellite
 exec --no-startup-id exec wmname LG3D
