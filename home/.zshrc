@@ -52,8 +52,6 @@ pac()     { sudo pacman "$@"; }
 apac()    { apacman "$@"; }
 chrome()  { google-chrome-beta "$@"; }
 d8()      { rlwrap ~s/chromium.googlesource.com/v8/v8/out/Release/d8 "$@"; }
-atom()    { atom-beta "$@"; }
-apm()     { apm-beta "$@"; }
 s()       { sudo "$@"; }
 sys()     { s systemctl "$@"; }
 jou()     { s journalctl "$@"; }
