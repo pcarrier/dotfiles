@@ -20,14 +20,15 @@ $HOME/ws/src/github.com/meteor/mdgscripts/bin:\
 /usr/local/bin:/usr/local/sbin:\
 /usr/bin:/usr/sbin:\
 /bin:/sbin:\
-/usr/games
+$HOME/ws/src/chromium.googlesource.com/chromium/tools/depot_tools:\
+$HOME/ws/src/github.com/meteor/terraform-bin/linux_amd64
 
 export VISUAL='nvim' EDITOR='nvim' MANPAGER=most
 
 if [[ Darwin = $OS ]]; then
   eval $(docker-machine env dev)
 else
-  export BROWSER=google-chrome-beta
+  export BROWSER=chrome
 fi
 
 export MACHINEID=$(dbus-uuidgen --get)

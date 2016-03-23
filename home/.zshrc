@@ -86,6 +86,8 @@ ghcd() { gcd "git@github.com:$1"; }
 pcd() { ghcd "pcarrier/$1"; }
 mcd() { ghcd "meteor/$1"; }
 Pcd() { ghcd "percolatestudio/$1"; }
+kcd() { ghcd "kadirahq/$1"; }
+acd() { ghcd "apollostack/$1"; }
 
 if [[ Darwin = $OS ]]
 then
