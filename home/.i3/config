@@ -1,6 +1,7 @@
 # http://i3wm.org/docs/userguide.html
 
 #exec --no-startup-id exec i3lock
+exec --no-startup-id exec xmodmap ~/.xmodmap
 exec --no-startup-id exec pulseaudio
 exec --no-startup-id exec xsetroot -solid '#333'
 exec --no-startup-id exec dunst
@@ -12,7 +13,7 @@ font pango:PragmataPro 10
 
 focus_follows_mouse no
 
-set $mod Mod4
+set $mod Mod3
 #set $up l
 #set $down k
 #set $left j
@@ -127,6 +128,7 @@ bar {
   position bottom
   status_command exec i3status
   font pango:PragmataPro 10
+  modifier $mod
   mode hide
 }
 
