@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ Darwin = $OS ]; then
-  exec "$HOME/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "$@"
+  exec "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "$@"
 else
   exec "$HOME/opt/sublime_text_3/sublime_text" "$@"
 fi

@@ -21,7 +21,7 @@ $HOME/ws/src/github.com/meteor/mdgscripts/bin:\
 /usr/bin:/usr/sbin:\
 /bin:/sbin:\
 $HOME/ws/src/chromium.googlesource.com/chromium/tools/depot_tools:\
-$HOME/ws/src/github.com/meteor/terraform-bin/linux_amd64
+$HOME/ws/src/github.com/meteor/terraform-bin/${OS:l}_amd64
 
 export VISUAL='nvim' EDITOR='nvim' MANPAGER=most
 
