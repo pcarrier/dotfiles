@@ -99,3 +99,4 @@ fi
 
 ifsource() { [ -e "$1" ] && . "$1"; }
 ifsource /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ifsource /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
