@@ -82,3 +82,5 @@
 	line-graphics = utf-8
 	mouse = true
 	blame-options = -C -C -C
+[merge]
+	tool = meld
