@@ -6,6 +6,6 @@ Xft/RGBA "none"
 Xft/lcdfilter "lcddefault"
 Net/ThemeName "Xfce"
 Net/CursorBlinkTime 250
-Gtk/FontName "Roboto Condensed, 10"
+Gtk/FontName "PragmataPro 10"
 Gtk/MenuImages 1
 Gtk/ButtonImages 1
